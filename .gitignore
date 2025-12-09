@@ -1,2 +1,4 @@
 .env
 data/
+embeddings/vector_db
+imgs/

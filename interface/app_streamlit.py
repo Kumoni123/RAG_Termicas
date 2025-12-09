@@ -43,7 +43,7 @@ META_PATH = VECTOR_DB_DIR / "metadata.json"
 @st.cache_resource
 def load_vector_db():
     if not INDEX_PATH.exists() or not META_PATH.exists():
-        st.error("❌ No se encontró index.faiss o metadata.json — genera embeddings primero.")
+        st.error("No se encontró index.faiss o metadata.json — genera embeddings primero.")
         st.stop()
 
     index = faiss.read_index(str(INDEX_PATH))
@@ -98,11 +98,11 @@ def generate_answer(query: str, retrieved_chunks: list):
 # ----------------------------
 # Streamlit UI
 # ----------------------------
-st.set_page_config(page_title="RAG Enterprise", page_icon="📄", layout="wide")
-st.title("📄 RAG Enterprise — Motor de manuales")
+st.set_page_config(page_title="RAG Térmicas", page_icon="", layout="wide")
+st.title("Manual de funcionamiento y fallas de una Central Termoeléctrica")
 st.caption("Búsqueda + Razonamiento con Claude")
 
-query = st.text_input("🔍 Escribe tu pregunta sobre los manuales:", "")
+query = st.text_input("Escribe tu pregunta sobre los manuales:", "")
 top_k = st.slider("Número de fragmentos a recuperar", min_value=1, max_value=10, value=4)
 
 if st.button("Consultar"):
@@ -110,19 +110,19 @@ if st.button("Consultar"):
         st.warning("Escribe una pregunta antes de continuar.")
         st.stop()
 
-    st.info("🔎 Buscando información relevante...")
+    st.info("Buscando información relevante...")
     chunks = search_chunks(query, top_k=top_k)
 
-    st.info("🧠 Generando respuesta con Claude...")
+    st.info("Generando respuesta con Claude...")
     answer = generate_answer(query, chunks)
 
-    st.subheader("📝 Respuesta")
+    st.subheader("Respuesta")
     st.write(answer)
 
-    st.subheader("📚 Fragmentos utilizados")
+    st.subheader("Fragmentos utilizados")
     for idx, ch in enumerate(chunks, start=1):
         with st.expander(f"Fragmento {idx} — {ch['source']}"):
             st.write(ch["text"])
             st.caption(f"Chunk ID: {ch['id']}")
 
-st.markdown("---\nCreado con ❤️ | Sistema RAG optimizado para documentación empresarial")
+st.markdown("Sistema RAG optimizado para documentación basado en Centrales Térmicas")
