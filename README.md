@@ -45,6 +45,6 @@ streamlit run interface/app_streamlit.py
 
 ### 5. Interfaz y Resultados
 
-![Diagrama del Proyecto](imgs/Foto1RAG.jpg)
-![Diagrama del Proyecto](imgs/Foto2RAG.jpg)
-![Diagrama del Proyecto](imgs/Foto3RAG.jpg)
+![Diagrama del Proyecto](./imgs/Foto1RAG.jpg)
+![Diagrama del Proyecto](./imgs/Foto2RAG.jpg)
+![Diagrama del Proyecto](./imgs/Foto3RAG.jpg)
