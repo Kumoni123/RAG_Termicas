@@ -1,0 +1,32 @@
+paths:
+  manuals_dir: "data/manuals"
+  vector_db_dir: "embeddings/vector_db"
+  embeddings_file: "embeddings/vector_db/embeddings.npy"
+  faiss_index: "embeddings/vector_db/index.faiss"
+  metadata: "embeddings/vector_db/metadata.json"
+
+llm:
+  provider: "anthropic"
+  api_key_env: "ANTHROPIC_API_KEY"
+  model: "claude-3-7-sonnet-20250219"
+  max_tokens: 4000
+  temperature: 0.1
+
+embeddings:
+  model_name: "all-MiniLM-L6-v2"
+  chunk_size_tokens: 450
+  chunk_overlap_tokens: 50
+  token_model: "gpt-4o-mini"
+
+retrieval:
+  top_k: 4
+  score_threshold: 0.2
+  normalize_embeddings: true
+
+faiss:
+  metric: "inner_product"   # o "l2"
+  index_type: "flat"        # FlatIP o FlatL2
+
+interface:
+  show_sources: true
+  max_source_chars: 300
